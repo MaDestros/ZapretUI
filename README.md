@@ -1,6 +1,6 @@
 # ZapretUI
-[Проект на GiTea](https://git.net-state.ru/MaDestro/ZapretUI/)
-[Зеркало на GitHub](https://github.com/MaDestros/ZapretUI)
+- [Проект на GiTea](https://git.net-state.ru/MaDestro/ZapretUI/)
+- [Зеркало на GitHub](https://github.com/MaDestros/ZapretUI)
 
 ## Основные возможноести и планы:
 - [X] Графический интерфейс
