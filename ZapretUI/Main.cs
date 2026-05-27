@@ -45,25 +45,59 @@ namespace ZapretUI
         {
             try
             {
+                if (!File.Exists(_ProcessFile))
+                {
+                    MessageBox.Show($"Не найден файл:\n{_ProcessFile}\n\nНажмите 'Установить'", "Ошибка");
+                    return;
+                }
+
+                // Закрываем старый процесс если есть
+                if (process != null && !process.HasExited)
+                {
+                    process.Kill();
+                    process.Dispose();
+                }
+
                 process = new Process();
-                process.StartInfo.CreateNoWindow = true;
                 process.StartInfo.FileName = _ProcessFile;
-                process.StartInfo.Arguments = "--wf-tcp-out=80,443 --wf-udp-out=443 --lua-desync=antidpi:typ=ip"; // Ключевые параметры!
+
+                // ПРАВИЛЬНЫЕ ПАРАМЕТРЫ - УТОЧНИТЕ В ДОКУМЕНТАЦИИ!
+                process.StartInfo.Arguments = "--wf-tcp-out=80,443 --wf-udp-out=443 --lua-desync=antidpi:typ=fake";
+
                 process.StartInfo.UseShellExecute = false;
                 process.StartInfo.CreateNoWindow = true;
                 process.StartInfo.RedirectStandardOutput = true;
+                process.StartInfo.RedirectStandardError = true;
+
                 process.Start();
+
+                bt_start.Enabled = false;
+                bt_stop.Enabled = true;
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message, "Error"); }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка запуска");
+            }
         }
 
         private void bt_stop_Click(object sender, EventArgs e)
         {
             try
             {
-                process.Close();
+                if (process != null && !process.HasExited)
+                {
+                    process.Kill();
+                    process.WaitForExit(3000);
+                    process.Dispose();
+                    process = null;
+                }
+                bt_start.Enabled = true;
+                bt_stop.Enabled = false;
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message, "Error"); }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка остановки");
+            }
         }
 
         void CheckDirectory()
