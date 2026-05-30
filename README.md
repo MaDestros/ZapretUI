@@ -2,6 +2,8 @@
 - [Проект на GiTea](https://git.net-state.ru/MaDestro/ZapretUI/)
 - [Зеркало на GitHub](https://github.com/MaDestros/ZapretUI)
 
+[![изображение_2026-05-30_201931580.png](https://s10.iimage.su/s/30/gfC85BRxUsRnR08V3O0WBj4dnV8w6u0ly3ieleGYn.png)](https://iimg.su/i/fC85BR)
+
 ## Основные возможноести и планы:
 - [X] Графический интерфейс
 - [ ] Гибкие настройки системы
