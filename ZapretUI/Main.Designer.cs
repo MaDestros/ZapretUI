@@ -396,8 +396,8 @@
             bunifuFormDrag1.DockingOptions.DockRight = true;
             bunifuFormDrag1.DockingOptions.DockTopLeft = true;
             bunifuFormDrag1.DockingOptions.DockTopRight = true;
-            bunifuFormDrag1.DragOpacity = 0.9D;
-            bunifuFormDrag1.Enabled = false;
+            bunifuFormDrag1.DragOpacity = 0.5D;
+            bunifuFormDrag1.Enabled = true;
             bunifuFormDrag1.ParentForm = this;
             bunifuFormDrag1.ShowCursorChanges = true;
             bunifuFormDrag1.ShowDockingIndicators = true;
